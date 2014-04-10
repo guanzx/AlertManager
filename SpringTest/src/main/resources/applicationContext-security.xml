@@ -13,9 +13,7 @@
 	</security:http>
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="admin" authorities="ROLE_USER" password="admin" />
-			</security:user-service>
+			 <security:jdbc-user-service data-source-ref="dataSource" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 	<bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
@@ -25,6 +23,13 @@
 				<bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
 			</list>
 		</property>
+	</bean>
+	
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${master.jdbc.driver}" />
+		<property name="url" value="${master.jdbc.url}" />
+		<property name="username" value="${master.jdbc.username}" />
+		<property name="password" value="${master.jdbc.password}" />
 	</bean>
 </beans>
 
