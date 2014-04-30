@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
 <!DOCTYPE html>
 <html lang="zh-cn">
   <head>
@@ -11,8 +12,8 @@
    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css">
 
     <link href="css/jumbotron.css" rel="stylesheet">
+     <link href="css/store.css" rel="stylesheet">
   </head>
-
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -24,22 +25,16 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">Thoughts Racing</a>
+        </div> 
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+            <span class="navbar-brand" >${loginUser}</span> <a class="navbar-brand" href="/SpringTest/j_spring_security_logout">退出</a>
+            </div>
+          <form>
         </div>
-        <li><a href="/SpringTest/j_spring_security_logout">Log Out</a></li> 
-  <!--       <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form">
-            <div class="form-group">
-              <input type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div> -->
       </div>
     </div>
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -96,6 +91,7 @@
     </div>
 
 
+	<div id="wrap">我的收藏</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

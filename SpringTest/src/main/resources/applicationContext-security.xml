@@ -8,7 +8,7 @@
 	<security:http auto-config="true" access-decision-manager-ref="accessDecisionManager">
 		<security:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 		<security:intercept-url pattern="/**" access="ROLE_USER" />
-		<security:form-login login-page="/login" default-target-url="/hello" />
+		<security:form-login login-page="/login" default-target-url="/monitor" />
   		<security:logout invalidate-session="true" logout-success-url="/login" logout-url="/j_spring_security_logout"/>  
 	</security:http>
 	<security:authentication-manager>
@@ -31,5 +31,11 @@
 		<property name="username" value="${master.jdbc.username}" />
 		<property name="password" value="${master.jdbc.password}" />
 	</bean>
+	
+	<bean id="monitorJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref bean="dataSource" />
+        </property>
+    </bean>
 </beans>
 
